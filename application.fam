@@ -18,5 +18,5 @@ App(
     fap_icon="icons/icon.icon",
     fap_category="Tools",
     fap_author="Endika",
-    fap_description="Offline habit tracker: streaks, 7-day history, goals, and gentle yesterday check-ins.",
+    fap_description="Offline habits on Flipper: goals, streaks, progress, SD storage, optional yesterday prompts.",
 )
