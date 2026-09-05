@@ -31,6 +31,13 @@ endif
 format:
 	clang-format -i $(FORMAT_FILES)
 
+# constParameterPointer suppression: the four hf_views_*_input handlers are assigned to
+# view_set_input_callback, whose ViewInputCallback is `bool (*)(InputEvent*, void*)`. They only
+# read the event, so cppcheck asks for `const InputEvent *` — but that signature no longer matches
+# the SDK typedef and the FAP build fails with -Werror=incompatible-pointer-types, so the only way
+# to take the advice would be a function-pointer cast at every registration. The advice cannot be
+# applied; it is not a latent bug. The draw callbacks used to be reported here too and are fixed:
+# their model locals no longer carry a redundant const.
 linter:
 	cppcheck --enable=all --check-level=exhaustive --error-exitcode=1 --inline-suppr -I. \
 		--suppress=missingIncludeSystem \

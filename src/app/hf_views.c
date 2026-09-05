@@ -105,7 +105,7 @@ static void hf_draw_habit_title_strip(Canvas *canvas, int top_y, const char *tit
 }
 
 void hf_views_main_draw(Canvas *canvas, void *model) {
-    const HfCtx *ctx = model;
+    HfCtx *ctx = model;
     furi_assert(ctx && ctx->app);
     HabitFlowApp *app = ctx->app;
     canvas_clear(canvas);
@@ -192,7 +192,7 @@ bool hf_views_main_input(InputEvent *event, void *context) {
 }
 
 void hf_views_detail_draw(Canvas *canvas, void *model) {
-    const HfCtx *ctx = model;
+    HfCtx *ctx = model;
     furi_assert(ctx && ctx->app);
     HabitFlowApp *app = ctx->app;
     const Habit *h = &app->store.habits[app->detail_index];
@@ -271,7 +271,7 @@ bool hf_views_detail_input(InputEvent *event, void *context) {
 }
 
 void hf_views_manage_draw(Canvas *canvas, void *model) {
-    const HfCtx *ctx = model;
+    HfCtx *ctx = model;
     furi_assert(ctx && ctx->app);
     HabitFlowApp *app = ctx->app;
     canvas_clear(canvas);
@@ -346,7 +346,7 @@ static uint8_t edit_row_max(const HabitFlowApp *app) {
 }
 
 void hf_views_edit_draw(Canvas *canvas, void *model) {
-    const HfCtx *ctx = model;
+    HfCtx *ctx = model;
     furi_assert(ctx && ctx->app);
     HabitFlowApp *app = ctx->app;
     canvas_clear(canvas);
