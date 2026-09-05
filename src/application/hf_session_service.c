@@ -3,7 +3,7 @@
 #include <furi.h>
 #include <string.h>
 
-void hf_yesterday_queue_reset(HfYesterdayQueue *q) {
+static void hf_yesterday_queue_reset(HfYesterdayQueue *q) {
     if (q) {
         memset(q, 0, sizeof(*q));
     }
