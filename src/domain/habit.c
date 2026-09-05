@@ -10,7 +10,7 @@ void hf_habit_set_defaults(Habit *h, const char *name) {
     h->goal_days = HF_DEFAULT_GOAL;
 }
 
-void hf_history_push_completed(Habit *h, bool day_was_completed) {
+static void hf_history_push_completed(Habit *h, bool day_was_completed) {
     for (int i = 0; i < HF_HISTORY_DAYS - 1; i++) {
         h->history[i] = h->history[i + 1];
     }
@@ -23,7 +23,7 @@ void hf_habit_on_long_gap(Habit *h) {
     memset(h->history, 0, sizeof(h->history));
 }
 
-void hf_habit_bump_max_streak(Habit *h) {
+static void hf_habit_bump_max_streak(Habit *h) {
     if (h->streak > h->max_streak) {
         h->max_streak = h->streak;
     }
