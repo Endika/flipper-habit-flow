@@ -2,6 +2,8 @@
 *.o
 tests/*.o
 test_habit
+test_store_status
+test_habit_store
 
 # ufbt / GitHub Actions release build
 dist/
