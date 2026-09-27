@@ -2,7 +2,11 @@ PROJECT_NAME = habit_flow
 
 FAP_APPID = flipper_habit_flow
 
-FLIPPER_FIRMWARE_PATH ?= /home/<YOUR_PATH>/flipperzero-firmware
+# Local override: create a gitignored `local.mk` with your real path, e.g.
+#   FLIPPER_FIRMWARE_PATH = /home/you/flipperzero-firmware
+# The committed default below is a placeholder on purpose — never commit a real path.
+-include local.mk
+FLIPPER_FIRMWARE_PATH ?= <Path>/flipperzero-firmware
 
 PWD = $(shell pwd)
 
